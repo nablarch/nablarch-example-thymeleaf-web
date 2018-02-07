@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>プロジェクト登録</title>
+    <link rel="stylesheet" th:href="@{/css/bulma.min.css}" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
+    />
+</head>
+
+<body>
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    プロジェクト登録
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <form class="ui form" method="POST" th:action="@{/action/project/create}">
+                <input type="hidden" name="nablarch_token" th:value="${nablarch_request_token}" />
+                <div class="field is-grouped is-grouped-right">
+                    <p class="control">
+                        <a class="button" th:href="@{/action/project/backToNew}">戻る</a>
+                    </p>
+                    <p class="control">
+                        <button class="button is-primary" type="submit">確定</button>
+                    </p>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト名</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="projectName" th:value="${projectForm.projectName}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト種別</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field is-narrow">
+                            <div class="control">
+                                <input class="input" type="text" name="projectName" th:value="${@com.nablarch.example.app.web.common.code.ProjectType@valueOf(projectForm.projectType.toUpperCase()).label}"
+                                    readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト分類</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field is-narrow">
+                            <div class="control">
+                                <input class="input" type="text" name="projectName" th:value="${@com.nablarch.example.app.web.common.code.ProjectClass@valueOf(projectForm.projectClass.toUpperCase()).label}"
+                                    readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクトマネージャー</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="projectManager" th:value="${projectForm.projectManager}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクトリーダー</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="projectLeader" th:value="${projectForm.projectLeader}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">顧客名</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="clientId" th:value="${projectForm.clientId}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト開始日</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="projectStartDate" th:value="${projectForm.projectStartDate}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト終了日</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="projectEndDate" th:value="${projectForm.projectEndDate}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">備考</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea" name="note" th:text="${projectForm.note}" readonly="readonly"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">売上高</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="sales" th:value="${projectForm.sales}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">売上原価</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="costOfGoodsSold" th:value="${projectForm.costOfGoodsSold}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">販管費</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="sga" th:value="${projectForm.sga}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">本社配賦</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" name="allocationOfCorpExpenses" th:value="${projectForm.allocationOfCorpExpenses}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">売上総利益</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" th:value="${profit.grossProfit}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">配賦前利益</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" th:value="${profit.profitBeforeAllocation}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">配賦前利益率</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" th:value="${profit.profitRateBeforeAllocation}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">営業利益</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" th:value="${profit.operatingProfit}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">営業利益率</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="text" th:value="${profit.operatingProfitRate}" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-grouped is-grouped-right">
+                    <p class="control">
+                        <a class="button" th:href="@{/action/project/backToNew}">戻る</a>
+                    </p>
+                    <p class="control">
+                        <button class="button is-primary" type="submit">確定</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <style>
+        input.input,
+        textarea.textarea {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+    </style>
+</body>
+
+</html>

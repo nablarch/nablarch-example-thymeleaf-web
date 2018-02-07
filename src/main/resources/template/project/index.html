@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>プロジェクト登録</title>
+    <link rel="stylesheet" th:href="@{/css/bulma.min.css}" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
+    />
+</head>
+
+<body>
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    プロジェクト登録
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <article class="message is-danger" th:if="${!errors.globalMessages.isEmpty()}">
+                <div class="message-body">
+                    <ul>
+                        <li th:each="globalMessage : ${errors.globalMessages}" th:text="${globalMessage}"></li>
+                    </ul>
+                </div>
+            </article>
+            <form class="ui form" method="POST" th:action="@{/action/project/confirmOfCreate}">
+                <div class="field is-grouped is-grouped-right">
+                    <p class="control">
+                        <button class="button is-primary" type="submit">登録</button>
+                    </p>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト名</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('projectName')}? 'is-danger'" type="text" name="projectName" th:value="${projectForm.projectName}">
+                            </div>
+                            <p th:if="${errors.hasError('projectName')}" th:text="${errors != null}? ${errors.getMessage('projectName')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト種別</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field is-narrow">
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select name="projectType">
+                                        <option th:each="projectType : ${@com.nablarch.example.app.web.common.code.ProjectType@values()}" th:value="${projectType.code}"
+                                            th:text="${projectType.label}" th:selected="${projectForm.projectType == projectType.code}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p th:if="${errors.hasError('projectType')}" th:text="${errors != null}? ${errors.getMessage('projectType')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト分類</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field is-narrow">
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select name="projectClass">
+                                        <option th:each="projectClass : ${@com.nablarch.example.app.web.common.code.ProjectClass@values()}" th:value="${projectClass.code}"
+                                            th:text="${projectClass.label}" th:selected="${projectForm.projectClass == projectClass.code}"></option>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p th:if="${errors.hasError('projectClass')}" th:text="${errors != null}? ${errors.getMessage('projectClass')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクトマネージャー</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('projectManager')}? 'is-danger'" type="text" name="projectManager"
+                                    th:value="${projectForm.projectManager}">
+                            </div>
+                            <p th:if="${errors.hasError('projectManager')}" th:text="${errors != null}? ${errors.getMessage('projectManager')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクトリーダー</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('projectLeader')}? 'is-danger'" type="text" name="projectLeader" th:value="${projectForm.projectLeader}">
+                            </div>
+                            <p th:if="${errors.hasError('projectLeader')}" th:text="${errors != null}? ${errors.getMessage('projectLeader')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">顧客名</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('clientId')}? 'is-danger'" type="text" name="clientId" th:value="${projectForm.clientId}">
+                            </div>
+                            <p th:if="${errors.hasError('clientId')}" th:text="${errors != null}? ${errors.getMessage('clientId')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト開始日</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('projectStartDate')}? 'is-danger'" type="text" name="projectStartDate"
+                                    th:value="${projectForm.projectStartDate}">
+                            </div>
+                            <p th:if="${errors.hasError('projectStartDate')}" th:text="${errors != null}? ${errors.getMessage('projectStartDate')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">プロジェクト終了日</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('projectEndDate')}? 'is-danger'" type="text" name="projectEndDate"
+                                    th:value="${projectForm.projectEndDate}">
+                            </div>
+                            <p th:if="${errors.hasError('projectEndDate')}" th:text="${errors != null}? ${errors.getMessage('projectEndDate')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">備考</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <textarea class="textarea" th:classappend="${errors.hasError('note')}? 'is-danger'" name="note" th:text="${projectForm.note}"></textarea>
+                            </div>
+                            <p th:if="${errors.hasError('note')}" th:text="${errors != null}? ${errors.getMessage('note')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">売上高</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('sales')}? 'is-danger'" type="text" name="sales" th:value="${projectForm.sales}">
+                            </div>
+                            <p th:if="${errors.hasError('sales')}" th:text="${errors != null}? ${errors.getMessage('sales')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">売上原価</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('costOfGoodsSold')}? 'is-danger'" type="text" name="costOfGoodsSold"
+                                    th:value="${projectForm.costOfGoodsSold}">
+                            </div>
+                            <p th:if="${errors.hasError('costOfGoodsSold')}" th:text="${errors != null}? ${errors.getMessage('costOfGoodsSold')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">販管費</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('sga')}? 'is-danger'" type="text" name="sga" th:value="${projectForm.sga}">
+                            </div>
+                            <p th:if="${errors.hasError('sga')}" th:text="${errors != null}? ${errors.getMessage('sga')}" class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">本社配賦</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" th:classappend="${errors.hasError('allocationOfCorpExpenses')}? 'is-danger'" type="text" name="allocationOfCorpExpenses"
+                                    th:value="${projectForm.allocationOfCorpExpenses}">
+                            </div>
+                            <p th:if="${errors.hasError('allocationOfCorpExpenses')}" th:text="${errors != null}? ${errors.getMessage('allocationOfCorpExpenses')}"
+                                class="help is-danger">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-grouped is-grouped-right">
+                    <p class="control">
+                        <button class="button is-primary" type="submit">登録</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <style>
+    </style>
+</body>
+
+</html>
