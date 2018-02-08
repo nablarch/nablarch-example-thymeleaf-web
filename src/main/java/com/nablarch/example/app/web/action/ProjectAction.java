@@ -28,12 +28,26 @@ import nablarch.integration.doma.Transactional;
  */
 public class ProjectAction {
 
+    /**
+     * プロジェクト登録初期画面を表示。
+     *
+     * @param request HTTPリクエスト
+     * @param context 実行コンテキスト
+     * @return HTTPレスポンス
+     */
     public HttpResponse index(HttpRequest request, ExecutionContext context) {
         SessionUtil.delete(context, "project");
         context.setRequestScopedVar("projectForm", new ProjectForm());
         return new HttpResponse("project/index.html");
     }
 
+    /**
+     * 登録情報確認画面を表示。
+     *
+     * @param request HTTPリクエスト
+     * @param context 実行コンテキスト
+     * @return HTTPレスポンス
+     */
     @Transactional
     @InjectForm(form = ProjectForm.class, name = "projectForm")
     @OnError(type = ApplicationException.class, path = "project/index.html")
@@ -61,6 +75,13 @@ public class ProjectAction {
         return new HttpResponse("project/confirmOfCreate.html");
     }
 
+    /**
+     * 登録処理。
+     *
+     * @param request HTTPリクエスト
+     * @param context 実行コンテキスト
+     * @return HTTPレスポンス
+     */
     @Transactional
     @OnDoubleSubmission
     public HttpResponse create(HttpRequest request, ExecutionContext context) {
@@ -70,10 +91,24 @@ public class ProjectAction {
         return new HttpResponse(303, "redirect://completeOfCreate");
     }
 
+    /**
+     * 登録完了画面を表示。
+     *
+     * @param request HTTPリクエスト
+     * @param context 実行コンテキスト
+     * @return HTTPレスポンス
+     */
     public HttpResponse completeOfCreate(HttpRequest request, ExecutionContext context) {
         return new HttpResponse("project/completeOfCreate.html");
     }
 
+    /**
+     * 登録情報入力画面へ戻る。
+     *
+     * @param request HTTPリクエスト
+     * @param context 実行コンテキスト
+     * @return HTTPレスポンス
+     */
     public HttpResponse backToNew(HttpRequest request, ExecutionContext context) {
         final Project project = SessionUtil.get(context, "project");
         final ProjectForm form = BeanUtil.createAndCopy(ProjectForm.class, project);

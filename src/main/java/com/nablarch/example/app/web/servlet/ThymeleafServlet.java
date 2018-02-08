@@ -15,6 +15,11 @@ import org.thymeleaf.context.WebContext;
 
 import nablarch.core.repository.SystemRepository;
 
+/**
+ * エラーページへ遷移するためのサーブレット。
+ * @author Taichi Uragami
+ *
+ */
 public class ThymeleafServlet extends HttpServlet {
 
     private ServletContext servletContext;
