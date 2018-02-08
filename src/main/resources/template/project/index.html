@@ -43,7 +43,7 @@
                             <div class="control">
                                 <input class="input" th:classappend="${errors.hasError('projectName')}? 'is-danger'" type="text" name="projectName" th:value="${projectForm.projectName}">
                             </div>
-                            <p th:if="${errors.hasError('projectName')}" th:text="${errors != null}? ${errors.getMessage('projectName')}" class="help is-danger">
+                            <p th:if="${errors.hasError('projectName')}" th:text="${errors.getMessage('projectName')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <p th:if="${errors.hasError('projectType')}" th:text="${errors != null}? ${errors.getMessage('projectType')}" class="help is-danger">
+                            <p th:if="${errors.hasError('projectType')}" th:text="${errors.getMessage('projectType')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <p th:if="${errors.hasError('projectClass')}" th:text="${errors != null}? ${errors.getMessage('projectClass')}" class="help is-danger">
+                            <p th:if="${errors.hasError('projectClass')}" th:text="${errors.getMessage('projectClass')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                                 <input class="input" th:classappend="${errors.hasError('projectManager')}? 'is-danger'" type="text" name="projectManager"
                                     th:value="${projectForm.projectManager}">
                             </div>
-                            <p th:if="${errors.hasError('projectManager')}" th:text="${errors != null}? ${errors.getMessage('projectManager')}" class="help is-danger">
+                            <p th:if="${errors.hasError('projectManager')}" th:text="${errors.getMessage('projectManager')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                             <div class="control">
                                 <input class="input" th:classappend="${errors.hasError('projectLeader')}? 'is-danger'" type="text" name="projectLeader" th:value="${projectForm.projectLeader}">
                             </div>
-                            <p th:if="${errors.hasError('projectLeader')}" th:text="${errors != null}? ${errors.getMessage('projectLeader')}" class="help is-danger">
+                            <p th:if="${errors.hasError('projectLeader')}" th:text="${errors.getMessage('projectLeader')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                             <div class="control">
                                 <input class="input" th:classappend="${errors.hasError('clientId')}? 'is-danger'" type="text" name="clientId" th:value="${projectForm.clientId}">
                             </div>
-                            <p th:if="${errors.hasError('clientId')}" th:text="${errors != null}? ${errors.getMessage('clientId')}" class="help is-danger">
+                            <p th:if="${errors.hasError('clientId')}" th:text="${errors.getMessage('clientId')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                                 <input class="input" th:classappend="${errors.hasError('projectStartDate')}? 'is-danger'" type="text" name="projectStartDate"
                                     th:value="${projectForm.projectStartDate}">
                             </div>
-                            <p th:if="${errors.hasError('projectStartDate')}" th:text="${errors != null}? ${errors.getMessage('projectStartDate')}" class="help is-danger">
+                            <p th:if="${errors.hasError('projectStartDate')}" th:text="${errors.getMessage('projectStartDate')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                                 <input class="input" th:classappend="${errors.hasError('projectEndDate')}? 'is-danger'" type="text" name="projectEndDate"
                                     th:value="${projectForm.projectEndDate}">
                             </div>
-                            <p th:if="${errors.hasError('projectEndDate')}" th:text="${errors != null}? ${errors.getMessage('projectEndDate')}" class="help is-danger">
+                            <p th:if="${errors.hasError('projectEndDate')}" th:text="${errors.getMessage('projectEndDate')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                             <div class="control">
                                 <textarea class="textarea" th:classappend="${errors.hasError('note')}? 'is-danger'" name="note" th:text="${projectForm.note}"></textarea>
                             </div>
-                            <p th:if="${errors.hasError('note')}" th:text="${errors != null}? ${errors.getMessage('note')}" class="help is-danger">
+                            <p th:if="${errors.hasError('note')}" th:text="${errors.getMessage('note')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -184,7 +184,7 @@
                             <div class="control">
                                 <input class="input" th:classappend="${errors.hasError('sales')}? 'is-danger'" type="text" name="sales" th:value="${projectForm.sales}">
                             </div>
-                            <p th:if="${errors.hasError('sales')}" th:text="${errors != null}? ${errors.getMessage('sales')}" class="help is-danger">
+                            <p th:if="${errors.hasError('sales')}" th:text="${errors.getMessage('sales')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                                 <input class="input" th:classappend="${errors.hasError('costOfGoodsSold')}? 'is-danger'" type="text" name="costOfGoodsSold"
                                     th:value="${projectForm.costOfGoodsSold}">
                             </div>
-                            <p th:if="${errors.hasError('costOfGoodsSold')}" th:text="${errors != null}? ${errors.getMessage('costOfGoodsSold')}" class="help is-danger">
+                            <p th:if="${errors.hasError('costOfGoodsSold')}" th:text="${errors.getMessage('costOfGoodsSold')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                             <div class="control">
                                 <input class="input" th:classappend="${errors.hasError('sga')}? 'is-danger'" type="text" name="sga" th:value="${projectForm.sga}">
                             </div>
-                            <p th:if="${errors.hasError('sga')}" th:text="${errors != null}? ${errors.getMessage('sga')}" class="help is-danger">
+                            <p th:if="${errors.hasError('sga')}" th:text="${errors.getMessage('sga')}" class="help is-danger">
                             </p>
                         </div>
                     </div>
@@ -228,7 +228,7 @@
                                 <input class="input" th:classappend="${errors.hasError('allocationOfCorpExpenses')}? 'is-danger'" type="text" name="allocationOfCorpExpenses"
                                     th:value="${projectForm.allocationOfCorpExpenses}">
                             </div>
-                            <p th:if="${errors.hasError('allocationOfCorpExpenses')}" th:text="${errors != null}? ${errors.getMessage('allocationOfCorpExpenses')}"
+                            <p th:if="${errors.hasError('allocationOfCorpExpenses')}" th:text="${errors.getMessage('allocationOfCorpExpenses')}"
                                 class="help is-danger">
                             </p>
                         </div>
