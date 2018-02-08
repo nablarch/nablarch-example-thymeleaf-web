@@ -78,7 +78,7 @@
                                 <div class="select is-fullwidth">
                                     <select name="projectClass">
                                         <option th:each="projectClass : ${@com.nablarch.example.app.web.common.code.ProjectClass@values()}" th:value="${projectClass.code}"
-                                            th:text="${projectClass.label}" th:selected="${projectForm.projectClass == projectClass.code}"></option>
+                                            th:text="${projectClass.label}" th:selected="${projectForm.projectClass == projectClass.code}">
                                         </option>
                                     </select>
                                 </div>
