@@ -21,8 +21,19 @@
     </section>
     <section class="section">
         <div class="container">
+            <article class="message is-danger" th:if="${!errors.allMessages.isEmpty()}">
+                <div class="message-body">
+                    <ul>
+                        <li th:each="message : ${errors.allMessages}" th:text="${message}"></li>
+                    </ul>
+                </div>
+            </article>
             <div class="field">
-                <p>不正な画面遷移を検出したため、処理を中断しました。</p>
+                <p>
+                    処理を正常に終了することができませんでした。
+                    <br/> お手数ですが、入力内容をご確認の上、少し間をおいてから、もう一度手順をやりなおして下さい。
+                    <br/> 状況が変わらない場合は、お手数ですが、このシステムの管理者にご連絡ください。
+                </p>
             </div>
             <div class="field is-grouped is-grouped-right">
                 <p class="control">

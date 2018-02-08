@@ -1,15 +1,12 @@
 package com.nablarch.example.app.entity.core.validation.validator;
 
+import com.nablarch.example.app.web.common.code.ProjectClass;
+import com.nablarch.example.app.web.common.code.ProjectType;
+
 import nablarch.core.validation.ee.Digits;
 import nablarch.core.validation.ee.Length;
 import nablarch.core.validation.ee.NumberRange;
 import nablarch.core.validation.ee.SystemChar;
-
-import com.nablarch.example.app.web.common.code.ClientSortKey;
-import com.nablarch.example.app.web.common.code.ProjectClass;
-import com.nablarch.example.app.web.common.code.ProjectSortKey;
-import com.nablarch.example.app.web.common.code.ProjectType;
-import com.nablarch.example.app.web.common.code.SortOrder;
 
 
 /**
@@ -58,18 +55,6 @@ public class ExampleDomainType {
     /** 日付 */
     @YYYYMMDD()
     private String date;
-
-    /** プロジェクトの一覧画面において、並び順の基準にする項目を表すコード値 */
-    @CodeValue(enumClass = ProjectSortKey.class)
-    private String projectAlignmentItem;
-
-    /** 顧客の一覧画面において、並び順の基準にする項目を表すコード値 */
-    @CodeValue(enumClass = ClientSortKey.class)
-    private String clientAlignmentItem;
-
-    /** 昇順、または降順を表すコード値 */
-    @CodeValue(enumClass = SortOrder.class)
-    private String alignment;
 
     /** ユーザ氏名（漢字） */
     @Length(max = 64, message = "{domainType.userName.message}")

@@ -10,26 +10,12 @@
   <!-- jsr310 -->
   <import file="JSR310.xml" />
   
-<!--   <component name="dialect" class="nablarch.core.db.dialect.H2Dialect" />
- -->
   <!-- 環境設定ファイル -->
   <config-file file="env.properties" />
   <config-file file="common.properties" />
-  <config-file file="RegistrationPdfFile.properties" />
 
   <!-- バリデーション -->
   <import file="com/nablarch/example/app/core/validation.xml" />
-
-  <!-- パスワード暗号化モジュールの設定 -->
-  <!-- 各PJ固有の設定を読み込む。 -->
-<!--   <import file="com/nablarch/example/app/web/common/authentication/passwordEncryptor.xml" />
- -->
-  <!-- 認証設定 -->
-  <!-- 各PJ固有の設定を読み込む。 -->
-<!--   <import file="com/nablarch/example/app/web/common/authentication/authenticator.xml" /> -->
-
-  <!-- ユニバーサルDAO機能 -->
-<!--   <import file="nablarch/common/dao.xml" /> -->
 
   <!-- web固有設定の読み込み -->
   <!-- データベース設定 -->
@@ -38,19 +24,6 @@
 
   <!-- Interceptorの実行順定義 -->
   <import file="com/nablarch/example/app/web/webui/interceptors.xml" />
-
-  <!-- エラーページ設定 -->
-<!--   <import file="nablarch/webui/error-page-for-webui.xml" /> -->
-
-  <!-- ファイルパス設定 -->
-  <!-- ファイルパス設定はexampleプロジェクト個別カスタマイズした設定を読込む。 -->
-<!--   <import file="com/nablarch/example/app/web/webui/filepath-for-webui.xml" /> -->
-
-  <!-- ファイルアップロード機能設定 -->
-<!--   <import file="nablarch/webui/multipart.xml" /> -->
-
-  <!-- カスタムタグ設定 -->
-<!--   <import file="com/nablarch/example/app/web/webui/nablarch-tag.xml" /> -->
 
   <!--
     二重サブミット防止機能
@@ -95,8 +68,6 @@
 
         <component class="nablarch.fw.web.handler.SecureHandler" />
 
-<!--         <component-ref name="multipartHandler"/> -->
-
         <component-ref name="sessionStoreHandler" />
 
         <component class="nablarch.fw.web.handler.NormalizationHandler">
@@ -113,23 +84,15 @@
         <component class="nablarch.fw.web.handler.HttpErrorHandler" >
           <property name="defaultPages">
             <map>
-              <entry key="4.." value="/WEB-INF/view/common/errorPages/userError.jsp" />
-              <entry key="403" value="/WEB-INF/view/common/errorPages/permissionError.jsp" />
-              <entry key="404" value="/WEB-INF/view/common/errorPages/pageNotFoundError.jsp" />
-              <entry key="413" value="/WEB-INF/view/common/errorPages/requestEntityTooLarge.jsp" />
-              <entry key="5.." value="/WEB-INF/view/common/errorPages/error.jsp" />
-              <entry key="503" value="/WEB-INF/view/common/errorPages/serviceUnavailableError.jsp" />
+              <entry key="4.." value="common/errorPages/userError.html" />
+              <entry key="403" value="common/errorPages/permissionError.html" />
+              <entry key="404" value="common/errorPages/pageNotFoundError.html" />
+              <entry key="413" value="common/errorPages/requestEntityTooLarge.html" />
+              <entry key="5.." value="common/errorPages/error.html" />
+              <entry key="503" value="common/errorPages/serviceUnavailableError.html" />
             </map>
           </property>
         </component>
-
-<!--         <component-ref name="nablarchTagHandler"/> -->
-
-        <!-- <component-ref name="dbConnectionManagementHandler"/> -->
-
-       <!--  <component-ref name="transactionManagementHandler"/> -->
-
-<!--         <component class="com.nablarch.example.app.web.action.LoginUserPrincipalCheckHandler"/> -->
 
         <component class="com.nablarch.example.app.web.handler.ExampleErrorForwardHandler"/>
 
@@ -137,24 +100,6 @@
       </list>
     </property>
   </component>
-
-<!--   <component name="jaxrsController"
-             class="nablarch.fw.web.servlet.WebFrontController">
-    <property name="handlerQueue">
-      <list>
-        <component class="nablarch.fw.web.handler.HttpCharacterEncodingHandler"/>
-        <component class="nablarch.fw.handler.GlobalErrorHandler"/>
-        <component class="nablarch.fw.jaxrs.JaxRsResponseHandler">
-          <property name="errorResponseBuilder">
-            <component class="com.nablarch.example.app.web.handler.RestfulErrorResponseBuilder" />
-          </property>
-        </component>
-        <component-ref name="dbConnectionManagementHandler"/>
-        <component-ref name="transactionManagementHandler"/>
-        <component-ref name="jaxrsPackageMapping"/>
-      </list>
-    </property>
-  </component> -->
 
   <!-- 初期化が必要なコンポーネント -->
   <component name="initializer"
@@ -164,7 +109,6 @@
         <!-- web/session-store.xml:DBストア-->
         <component-ref name="dbStore" />
         <component-ref name="packageMapping" />
-<!--         <component-ref name="jaxrsPackageMapping"/> -->
       </list>
     </property>
   </component>

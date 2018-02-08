@@ -24,7 +24,7 @@
             <article class="message is-danger" th:if="${!errors.globalMessages.isEmpty()}">
                 <div class="message-body">
                     <ul>
-                        <li th:each="globalMessage : ${errors.globalMessages}" th:text="${globalMessage}"></li>
+                        <li th:each="message : ${errors.globalMessages}" th:text="${message}"></li>
                     </ul>
                 </div>
             </article>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">顧客名</label>
+                        <label class="label">顧客ID</label>
                     </div>
                     <div class="field-body">
                         <div class="field">

@@ -21,10 +21,19 @@
     <listener-class>nablarch.fw.web.servlet.NablarchServletContextListener</listener-class>
   </listener>
 
-  <display-name>Nablarch Example</display-name>
+  <display-name>Nablarch Thymeleaf Example</display-name>
   <description>
-    Nablarch Example
+    Nablarch Thymeleaf Example
   </description>
+
+  <servlet>
+    <servlet-name>thymeleaf</servlet-name>
+    <servlet-class>com.nablarch.example.app.web.servlet.ThymeleafServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>thymeleaf</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
 
   <filter>
     <filter-name>webEntryPoint</filter-name>
@@ -35,6 +44,7 @@
     <filter-name>webEntryPoint</filter-name>
     <url-pattern>/action/*</url-pattern>
     <url-pattern>/</url-pattern>
+    <url-pattern>/index.html</url-pattern>
   </filter-mapping>
 
   <mime-mapping>    
@@ -52,26 +62,26 @@
 
   <error-page>
     <error-code>400</error-code>
-    <location>/WEB-INF/view/common/errorPages/userError.jsp</location>
+    <location>/common/errorPages/userError.jsp</location>
   </error-page>
   <error-page>
     <error-code>403</error-code>
-    <location>/WEB-INF/view/common/errorPages/permissionError.jsp</location>
+    <location>/common/errorPages/permissionError.jsp</location>
   </error-page>
   <error-page>
     <error-code>404</error-code>
-    <location>/WEB-INF/view/common/errorPages/pageNotFoundError.jsp</location>
+    <location>/common/errorPages/pageNotFoundError.html</location>
   </error-page>
   <error-page>
     <error-code>413</error-code>
-    <location>/WEB-INF/view/common/errorPages/requestEntityTooLarge.jsp</location>
+    <location>/common/errorPages/requestEntityTooLarge.jsp</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>
-    <location>/WEB-INF/view/common/errorPages/error.jsp</location>
+    <location>/common/errorPages/error.jsp</location>
   </error-page>
   <error-page>
     <error-code>503</error-code>
-    <location>/WEB-INF/view/common/errorPages/serviceUnavailableError.jsp</location>
+    <location>/common/errorPages/serviceUnavailableError.jsp</location>
   </error-page>
 </web-app>
