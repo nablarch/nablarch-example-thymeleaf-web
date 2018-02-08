@@ -62,11 +62,11 @@
 
   <error-page>
     <error-code>400</error-code>
-    <location>/common/errorPages/userError.jsp</location>
+    <location>/common/errorPages/userError.html</location>
   </error-page>
   <error-page>
     <error-code>403</error-code>
-    <location>/common/errorPages/permissionError.jsp</location>
+    <location>/common/errorPages/permissionError.html</location>
   </error-page>
   <error-page>
     <error-code>404</error-code>
@@ -74,14 +74,14 @@
   </error-page>
   <error-page>
     <error-code>413</error-code>
-    <location>/common/errorPages/requestEntityTooLarge.jsp</location>
+    <location>/common/errorPages/requestEntityTooLarge.html</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>
-    <location>/common/errorPages/error.jsp</location>
+    <location>/common/errorPages/error.html</location>
   </error-page>
   <error-page>
     <error-code>503</error-code>
-    <location>/common/errorPages/serviceUnavailableError.jsp</location>
+    <location>/common/errorPages/serviceUnavailableError.html</location>
   </error-page>
 </web-app>
