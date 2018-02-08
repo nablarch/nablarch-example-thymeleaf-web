@@ -143,6 +143,8 @@
           <entityPackageName>entity</entityPackageName>
           <dataDirectory>src/test/resources/data/h2</dataDirectory>
           <erdFile>src/main/resources/entity/h2.edm</erdFile>
+          <entityType>doma</entityType>
+          <entityTemplate>java/gsp_doma_entity.ftl</entityTemplate>
         </configuration>
         <dependencies>
           <dependency>
@@ -150,6 +152,11 @@
             <artifactId>h2</artifactId>
             <version>1.4.192</version>
             <scope>runtime</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.seasar.doma</groupId>
+            <artifactId>doma</artifactId>
+            <version>2.16.0</version>
           </dependency>
         </dependencies>
         <executions>
@@ -159,8 +166,26 @@
             <goals>
               <goal>generate-ddl</goal>
               <goal>execute-ddl</goal>
+              <goal>generate-entity</goal>
               <goal>load-data</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- gsp-dba-maven-pluginで自動生成したソースをビルド時に使用するための設定 -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals><goal>add-source</goal></goals>
+            <configuration>
+              <sources>
+                <source>${project.build.directory}/generated-sources/entity</source>
+              </sources>
+            </configuration>
           </execution>
         </executions>
       </plugin>
