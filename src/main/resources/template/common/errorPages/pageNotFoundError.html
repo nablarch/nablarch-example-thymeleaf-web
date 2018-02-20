@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>エラー画面</title>
+    <link rel="stylesheet" th:href="@{/css/bulma.min.css}" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
+    />
+</head>
+
+<body>
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    エラー画面
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="field">
+                <p>指定されたページは存在しないか、既に削除されています。</p>
+            </div>
+            <div class="field is-grouped is-grouped-right">
+                <p class="control">
+                    <a class="button is-primary" th:href="@{/}">トップページへ戻る</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <style>
+    </style>
+</body>
+
+</html>
