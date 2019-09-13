@@ -4,7 +4,7 @@
 
   <groupId>com.nablarch.example</groupId>
   <artifactId>nablarch-example-thymeleaf-web</artifactId>
-  <version>5u14-SNAPSHOT</version>
+  <version>5u15-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
@@ -29,7 +29,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>5u14-SNAPSHOT</version>
+        <version>5u15-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -90,11 +90,11 @@
       <version>1.4.196</version>
       <scope>runtime</scope>
     </dependency>
-    
+
     <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>1.4</version>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>3.3.1</version>
       <scope>runtime</scope>
     </dependency>
 
