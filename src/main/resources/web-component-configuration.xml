@@ -65,9 +65,9 @@
           <property name="appendResponseCharacterEncoding" value="true"/>
         </component>
 
-        <component class="nablarch.fw.handler.GlobalErrorHandler"/>
-
         <component class="nablarch.common.handler.threadcontext.ThreadContextClearHandler"/>
+
+        <component class="nablarch.fw.handler.GlobalErrorHandler"/>
 
         <component class="nablarch.fw.web.handler.HttpResponseHandler"/>
 
