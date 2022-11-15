@@ -151,6 +151,7 @@
           <erdFile>src/main/resources/entity/h2.edm</erdFile>
           <entityType>doma</entityType>
           <entityTemplate>java/gsp_doma_entity.ftl</entityTemplate>
+          <extraDdlDirectory>src/main/resources/extraDdl/h2</extraDdlDirectory>
         </configuration>
         <dependencies>
           <dependency>
