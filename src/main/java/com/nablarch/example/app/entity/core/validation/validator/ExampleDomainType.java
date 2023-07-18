@@ -3,6 +3,7 @@ package com.nablarch.example.app.entity.core.validation.validator;
 import com.nablarch.example.app.web.common.code.ProjectClass;
 import com.nablarch.example.app.web.common.code.ProjectType;
 
+import nablarch.core.validation.ee.DateFormat;
 import nablarch.core.validation.ee.Digits;
 import nablarch.core.validation.ee.Length;
 import nablarch.core.validation.ee.NumberRange;
@@ -53,7 +54,7 @@ public class ExampleDomainType {
     private String projectClass;
 
     /** 日付 */
-    @YYYYMMDD()
+    @DateFormat
     private String date;
 
     /** ユーザ氏名（漢字） */
