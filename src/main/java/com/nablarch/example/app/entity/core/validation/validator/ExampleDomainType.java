@@ -4,6 +4,7 @@ import com.nablarch.example.app.web.common.code.ProjectClass;
 import com.nablarch.example.app.web.common.code.ProjectType;
 
 import nablarch.core.validation.ee.Digits;
+import nablarch.core.validation.ee.EnumElement;
 import nablarch.core.validation.ee.Length;
 import nablarch.core.validation.ee.NumberRange;
 import nablarch.core.validation.ee.SystemChar;
@@ -45,11 +46,11 @@ public class ExampleDomainType {
     private String projectName;
 
     /** 新規開発PJ、または保守PJを表すコード値 */
-    @CodeValue(enumClass = ProjectType.class)
+    @EnumElement(ProjectType.class)
     private String projectType;
 
     /** プロジェクトの規模を表すコード値 */
-    @CodeValue(enumClass = ProjectClass.class)
+    @EnumElement(ProjectClass.class)
     private String projectClass;
 
     /** 日付 */
