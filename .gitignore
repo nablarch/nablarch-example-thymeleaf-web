@@ -92,13 +92,7 @@ gsp-target/
 
 
 ### JetBrains template
-.idea/dataSources/
-.idea/*.ids
-.idea/*.xml
-.idea/artifacts
-.idea/copyright
-!.idea/misc.xml
-!.idea/modules.xml
+.idea
 
 
 ## File-based project format:

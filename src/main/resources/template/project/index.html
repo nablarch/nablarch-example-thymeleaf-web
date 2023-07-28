@@ -57,8 +57,8 @@
                             <div class="control">
                                 <div class="select is-fullwidth">
                                     <select name="projectType">
-                                        <option th:each="projectType : ${@com.nablarch.example.app.web.common.code.ProjectType@values()}" th:value="${projectType.code}"
-                                            th:text="${projectType.label}" th:selected="${projectForm.projectType == projectType.code}">
+                                        <option th:each="projectType : ${@com.nablarch.example.app.web.common.code.ProjectType@values()}" th:value="${projectType.value}"
+                                            th:text="${projectType.label}" th:selected="${projectForm.projectType == projectType.value}">
                                         </option>
                                     </select>
                                 </div>
@@ -77,8 +77,8 @@
                             <div class="control">
                                 <div class="select is-fullwidth">
                                     <select name="projectClass">
-                                        <option th:each="projectClass : ${@com.nablarch.example.app.web.common.code.ProjectClass@values()}" th:value="${projectClass.code}"
-                                            th:text="${projectClass.label}" th:selected="${projectForm.projectClass == projectClass.code}">
+                                        <option th:each="projectClass : ${@com.nablarch.example.app.web.common.code.ProjectClass@values()}" th:value="${projectClass.value}"
+                                            th:text="${projectClass.label}" th:selected="${projectForm.projectClass == projectClass.value}">
                                         </option>
                                     </select>
                                 </div>
