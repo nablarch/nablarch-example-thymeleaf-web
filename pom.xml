@@ -132,7 +132,20 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.2</version>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.seasar.doma</groupId>
+              <artifactId>doma-processor</artifactId>
+              <version>2.62.0</version>
+            </path>
+          </annotationProcessorPaths>
+          <compilerArgs>
+            <!-- Eclipseを使用する場合、 以下の引数のコメントアウトを解除すること -->
+<!--            <arg>-Adoma.resources.dir=${project.basedir}/src/main/resources</arg>-->
+          </compilerArgs>
+        </configuration>
+
       </plugin>
       <plugin>
         <groupId>jp.co.tis.gsp</groupId>
@@ -164,8 +177,8 @@
           </dependency>
           <dependency>
             <groupId>org.seasar.doma</groupId>
-            <artifactId>doma</artifactId>
-            <version>2.16.0</version>
+            <artifactId>doma-core</artifactId>
+            <version>2.62.0</version>
           </dependency>
         </dependencies>
         <executions>
