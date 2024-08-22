@@ -21,6 +21,8 @@
     <db.adminUser>SAMPLE</db.adminUser>
     <db.user>NABLARCH_EXAMPLE</db.user>
 
+    <doma.version>2.62.0</doma.version>
+
     <webxml.path>src/main/webapp/WEB-INF/web.xml</webxml.path>
   </properties>
   
@@ -133,11 +135,26 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.6.2</version>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.seasar.doma</groupId>
+              <artifactId>doma-processor</artifactId>
+              <version>${doma.version}</version>
+            </path>
+          </annotationProcessorPaths>
+          <!-- Eclipseを使用する場合、 以下の引数のコメントアウトを解除すること
+          <compilerArgs>
+            <arg>-Adoma.resources.dir=${project.basedir}/src/main/resources</arg>
+          </compilerArgs>
+          -->
+        </configuration>
+
       </plugin>
       <plugin>
         <groupId>jp.co.tis.gsp</groupId>
         <artifactId>gsp-dba-maven-plugin</artifactId>
-        <version>5.0.0-SNAPSHOT</version>
+        <version>5.1.0-SNAPSHOT</version>
         <configuration>
           <driver>org.h2.Driver</driver>
           <url>jdbc:h2:./h2/db/nablarch_example</url>
@@ -164,8 +181,8 @@
           </dependency>
           <dependency>
             <groupId>org.seasar.doma</groupId>
-            <artifactId>doma</artifactId>
-            <version>2.16.0</version>
+            <artifactId>doma-core</artifactId>
+            <version>${doma.version}</version>
           </dependency>
         </dependencies>
         <executions>

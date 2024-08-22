@@ -15,7 +15,7 @@ import nablarch.integration.doma.DomaConfig;
  * @author Taichi Uragami
  *
  */
-@Dao(config = DomaConfig.class)
+@Dao
 public interface ClientDao {
 
     /**
