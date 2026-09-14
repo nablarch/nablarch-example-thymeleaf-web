@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import jakarta.validation.constraints.AssertTrue;
 
+import nablarch.core.beans.CopyOption;
 import nablarch.core.validation.ee.Domain;
 import nablarch.core.validation.ee.Required;
 
@@ -53,10 +54,12 @@ public class ProjectForm implements Serializable {
 
     /** プロジェクト開始日文字列 */
     @Domain("date")
+    @CopyOption(datePattern = "yyyyMMdd")
     private String projectStartDate;
 
     /** プロジェクト終了日文字列 */
     @Domain("date")
+    @CopyOption(datePattern = "yyyyMMdd")
     private String projectEndDate;
 
     /** 備考 */
